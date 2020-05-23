@@ -9,7 +9,7 @@ const Profile = props => {
             <AccountCircleIcon style={{color: "#009DDC", fontSize: "72px"}}></AccountCircleIcon>
             <h3>FirstName LastName</h3>
             <h4>Location:<p>Sacramento, California</p></h4>
-            <h4>Neighborhood<p>Midtown</p></h4>
+            <h4>Zipcode<p>95816</p></h4>
             <h4>Your Issues<p>3</p></h4>
         </div>
     );

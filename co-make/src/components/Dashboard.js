@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Profile from './Profile.js';
-import InputForm from './InputForm.js';
+import UserForm from './UserForm.js';
+import UserIssues from './UserIssues.js';
 import './Dashboard.css';
 
 const Dashboard = props => {
+    const [user, setUser] = useState([]);
 
     return(
         <div className='db_container'>
@@ -12,7 +14,11 @@ const Dashboard = props => {
                <Profile />
             </div>
             <div className='issues_container'>
-                <InputForm />
+                <div className='user_issues'>
+                    <UserForm  user={user} setUser={setUser}/>
+                    <UserIssues user={user}/>
+                </div>
+                
             </div>
 
         </div>
