@@ -1,11 +1,26 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import Profile from './Profile.js';
 import UserForm from './UserForm.js';
 import UserIssues from './UserIssues.js';
+import AllIssues from "./AllIssues.js";
 import './Dashboard.css';
 
 const Dashboard = props => {
     const [user, setUser] = useState([]);
+    const [data, setData] = useState([]);
+    const [url, setUrl] = useState(`https://randomuser.me/api/?results=10`);
+
+    useEffect(() => {
+      axios.get(url)
+      .then(response => {
+        // console.log(response.data);
+        setData(response.data.results);
+      })
+      .catch(err => {
+          console.log(err);
+      })
+    }, [url])
 
     return(
         <div className='db_container'>
@@ -24,8 +39,12 @@ const Dashboard = props => {
                     </div>
                     
                 </div>
-                
+                <div className='all_issues'>
+                    <h3>All ISSUES</h3>
+                    <AllIssues data={data}/>
+                </div>
             </div>
+            
 
         </div>
     );
