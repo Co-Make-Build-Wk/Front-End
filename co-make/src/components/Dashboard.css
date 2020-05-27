@@ -23,6 +23,12 @@
   height: 100%;
   box-sizing: border-box;
 }
+
+.user_issues_section {
+  height: 50%;
+  overflow: hidden;
+}
+
 .user_issues {
   display: flex;
   flex-direction: column;

@@ -15,8 +15,14 @@ const Dashboard = props => {
             </div>
             <div className='issues_container'>
                 <div className='user_issues'>
-                    <UserForm  user={user} setUser={setUser}/>
-                    <UserIssues user={user}/>
+                    <div className='user_issues_section'>
+                      <UserForm  user={user} setUser={setUser}/>  
+                    </div>
+                    <div className='user_issues_section'>
+                        <h3>YOUR ISSUES</h3>
+                        <UserIssues user={user}/>
+                    </div>
+                    
                 </div>
                 
             </div>
