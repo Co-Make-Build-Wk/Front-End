@@ -12,7 +12,7 @@ const formSchema = yup.object().shape({
   });
   
   const UserForm = props => {
-    const { setUser, user } = props;
+    const { user, setUser } = props;
 
     // managing state for our form inputs
     const [formState, setFormState] = useState({

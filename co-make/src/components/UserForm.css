@@ -1,5 +1,5 @@
 .form_container {
-  height: 50%;
+  height: inherit;
 }
 
 form {
