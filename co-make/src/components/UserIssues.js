@@ -1,5 +1,7 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 import "./UserIssues.css";
+
 
 const UserIssues = props => {
     const { user } = props;
@@ -21,6 +23,11 @@ const UserIssues = props => {
                 <div className='issue_div'>
                   <h4 className='issue_h4'>Details:</h4>
                   <p className='issue_p'>{item.details}</p>
+                </div>
+                <div className='issue_div'>
+                  <Link to={`/edit/${item.id}`}>
+                    <div className='edit'>EDIT</div>
+                  </Link>
                 </div>
               </div>
             ); 
