@@ -4,7 +4,7 @@ import {Route, Switch} from 'react-router-dom';
 import Profile from './Profile.js';
 import UserForm from './UserForm.js';
 import UserIssues from './UserIssues.js';
-import EditUserIssue from './UserIssues.js';
+import EditUserIssue from './EditUserIssue.js';
 import AllIssues from "./AllIssues.js";
 import './Dashboard.css';
 

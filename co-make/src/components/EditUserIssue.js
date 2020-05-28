@@ -1,5 +1,14 @@
-import React from "react";
+import React, {useEffect, useState} from 'react';
+import * as yup from 'yup';
+import axios from 'axios';
 import "./UserForm.css";
+
+const formSchema = yup.object().shape({
+    username: yup.string().required("Username is a required"),
+    zipcode: yup.string().required("Zipcode is a required"),
+    issue: yup.string().required("Must choose an related issue field"),
+    details: yup.string().required("Please add some details about your issue")
+  });
 
 const EditUserIssue = props => {
     
