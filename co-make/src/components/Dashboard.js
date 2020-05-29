@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {Route, Switch} from 'react-router-dom';
 import Profile from './Profile.js';
 import UserForm from './UserForm.js';
 import UserIssues from './UserIssues.js';
+import EditUserIssue from './EditUserIssue.js';
 import AllIssues from "./AllIssues.js";
 import './Dashboard.css';
 
@@ -33,9 +35,16 @@ const Dashboard = props => {
                     <div className='user_issues_section'>
                       <UserForm  user={user} setUser={setUser}/>  
                     </div>
-                    <div className='user_issues_section'>
-                        <h3>YOUR ISSUES</h3>
-                        <UserIssues user={user}/>
+                    <div className='user_issues_section'> 
+                    <h3>YOUR ISSUES</h3>
+                    <Route exact path="/">
+                            <UserIssues user={user}/>  
+                    </Route>
+                    <Route exact path="/edit/:id">
+                        <EditUserIssue user={user} setUser={setUser}/>  
+                    </Route>    
+
+                        
                     </div>
                     
                 </div>
