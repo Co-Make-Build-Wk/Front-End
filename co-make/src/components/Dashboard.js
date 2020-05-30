@@ -11,10 +11,10 @@ import './Dashboard.css';
 const Dashboard = props => {
     const [user, setUser] = useState([]);
     const [data, setData] = useState([]);
-    const [url, setUrl] = useState(`https://randomuser.me/api/?results=10`);
+    const [numb, setNumb] = useState(5);
 
     useEffect(() => {
-      axios.get(url)
+      axios.get(`https://randomuser.me/api/?results=${numb}`)
       .then(response => {
         // console.log(response.data);
         setData(response.data.results);
@@ -22,7 +22,22 @@ const Dashboard = props => {
       .catch(err => {
           console.log(err);
       })
-    }, [url])
+    }, [numb])
+
+
+    const [formState, setFormState] = useState({
+        issue: ""
+      });
+  
+      const inputChange = e => {
+        e.persist();
+        // validate(e);
+        let value =
+          e.target.type === "checkbox" ? e.target.checked : e.target.value;
+        setFormState({ ...formState, [e.target.name]: value });
+        setNumb(e.target.value);
+  
+      };
 
     return(
         <div className='db_container'>
@@ -50,6 +65,27 @@ const Dashboard = props => {
                 </div>
                 <div className='all_issues'>
                     <h3>All ISSUES</h3>
+
+                    <form>
+                    <label htmlFor="issue">
+                        Issues Per Page:
+                        <select
+                        value={formState.issue}
+                        name="issue"
+                        id="issue"
+                        onChange={inputChange}
+                        >
+                        <option value="Blank"></option>
+                        <option value="1">1</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        
+                        </select>
+                        
+                    </label>
+                    </form>
                     <AllIssues data={data}/>
                 </div>
             </div>
