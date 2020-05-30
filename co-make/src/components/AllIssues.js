@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./AllIssues.css";
 
 const AllIssues = props => {
@@ -10,14 +10,15 @@ const AllIssues = props => {
           {data.map(item => {
             return(
               <div className='issue_card'>
-                <h3 className='issue_h3'>{item.name.first}</h3>
+                
+                <h3 className='issue_h3'>{item.login.username}</h3>
                 <div className='issue_div'>
                   <h4 className='issue_h4'>Zipcode:</h4>
                   <p className='issue_p'>{item.location.postcode}</p>
                 </div>
                 <div className='issue_div'>
-                  <h4 className='issue_h4'>Issue:</h4>
-                  <p className='issue_p'>{item.issue}</p>
+                  <h4 className='issue_h4'>Contact:</h4>
+                  <p className='issue_p'>{item.email}</p>
                 </div>
                 <div className='issue_div'>
                   <h4 className='issue_h4'>Details:</h4>
